@@ -756,6 +756,40 @@ void MainWindow::getDatafromUi(ELS_DMI_Protocol &d)
     d.Obstacle_Total_Num=0;
 #endif
 
+#ifdef Baseline_2_0
+    if(issendtracklayout)
+    {
+          dms_dmi_data.Bitmap_Length=3;
+       d.DMS_DMI_Data_Size=sizeof(dms_dmi_data)-sizeof(dms_dmi_data.Bitmap)
+                +sizeof(quint8)*dms_dmi_data.Bitmap_Length;
+        QByteArray bytes;
+        bytes.resize(d.DMS_DMI_Data_Size);
+
+              dms_dmi_data.Signal_ID=ui->le_back->text().toInt();
+               dms_dmi_data.RTU_Type=ui->le_type->text().toInt();
+             dms_dmi_data.RTU_ID=ui->le_position->text().toInt();
+             dms_dmi_data.Signal_Status=ui->le_value->text().toInt();
+                       dms_dmi_data.Bitmap=new quint8[dms_dmi_data.Bitmap_Length];
+             dms_dmi_data.Bitmap[0]=ui->le_value->text().toInt();
+             dms_dmi_data.Bitmap[1]=ui->le_resvalue->text().toInt();
+             dms_dmi_data.Bitmap[2]=ui->le_resvalue_2->text().toInt();
+
+             dms_dmi_data.setBytesFromData(bytes);
+                      dms_dmi_data.freePointer();
+
+
+              d.DMS_DMI_Data = new quint8[d.DMS_DMI_Data_Size];
+              for(int i=0;i<d.DMS_DMI_Data_Size;i++)
+              {
+                  d.DMS_DMI_Data[i]=bytes[i];
+              }
+    }
+    else
+    {
+        d.DMS_DMI_Data_Size=0;
+    }
+#endif
+
     if(issmsconfirm)
     {
         issmsconfirm=false;
@@ -1066,13 +1100,14 @@ void MainWindow::sendMsg(bool isdmi)
                 -sizeof(els_dmi_data.Event_Id)-sizeof(els_dmi_data.Event_Output_Value)
                 -sizeof(els_dmi_data.Geographic_Distance_To_begin)-sizeof(els_dmi_data.Geographic_Distance_To_End)
                 +(sizeof(quint8)+sizeof(quint16))*2*els_dmi_data.Number_of_Active_Events;
+#ifdef Baseline_2_0
+        sendlength +=els_dmi_data.DMS_DMI_Data_Size;
+//        qDebug()<<sendlength<<"dmsdmidatasize"<<(els_dmi_data.DMS_DMI_Data_Size);
 
+#endif
 
         qsend.resize(sendlength);
 
-        int sendlength2=sizeof(dms_dmi_data)-sizeof(dms_dmi_data.Bitmap)
-                +sizeof(quint8)*dms_dmi_data.Bitmap_Length;
-        qsend2.resize(sendlength2);
 
         int port1,port2;
         QString ip1,ip2;
@@ -1091,59 +1126,8 @@ void MainWindow::sendMsg(bool isdmi)
 
             int i =mySocket->writeDatagram(qsend,QHostAddress(ip1),port1);
 
-            if(issendtracklayout)
-            {
-                dms_dmi_data.Signal_ID=ui->le_back->text().toInt();
-            }
-            else
-            {
-                dms_dmi_data.Signal_ID=0;
-            }
-            //            qDebug()<<"sigid"<<ui->le_back->text()<<dms_dmi_data.Signal_ID;
-            dms_dmi_data.RTU_Type=ui->le_type->text().toInt();
-            dms_dmi_data.RTU_ID=ui->le_position->text().toInt();
-            dms_dmi_data.Signal_Status=ui->le_value->text().toInt();
-            dms_dmi_data.Bitmap_Length=3;
-            dms_dmi_data.Bitmap=new quint8[dms_dmi_data.Bitmap_Length];
-            //            for(int i=0;i<dms_dmi_data.Bitmap_Length;i++)
-            //            {
-            //                dms_dmi_data.Bitmap[i]=i;
-            //            }
-            dms_dmi_data.Bitmap[0]=ui->le_value->text().toInt();
-            dms_dmi_data.Bitmap[1]=ui->le_resvalue->text().toInt();
-            dms_dmi_data.Bitmap[2]=ui->le_resvalue_2->text().toInt();
-            //            if(ui->le_resvalue->text()=="1")
-            //            {
-            //                dms_dmi_data.Bitmap[5]=0;
-            //                //                qDebug()<<"send 1";
-            //            }
-            //            else if(ui->le_resvalue->text()=="2")
-            //            {
-            //                dms_dmi_data.Bitmap[5]=0x08;
-            //                //                qDebug()<<"send 2";
-            //            }
-            //            else if(ui->le_resvalue->text()=="3")
-            //            {
-            //                dms_dmi_data.Bitmap[5]=0x04;
-            //                //                qDebug()<<"send 3";
-            //            }
-            //            else
-            //            {
-            //                dms_dmi_data.Bitmap[5]=0;
-            //            }
 
-            dms_dmi_data.setBytesFromData(qsend2);
-            int j= mySocket2->writeDatagram(qsend2,QHostAddress(ip1),12345);
-            dms_dmi_data.freePointer();
-            //                        writeLog("els_dmi1 send data is "+QString::number(i)+"bytes",qsend);
 
-            //            els_dmi_data.DMI_Control=0;
-            //            els_dmi_data.setBytesFromData(qsend);
-            //            els_dmi_data.freePointer();
-
-            //            i =mySocket->writeDatagram(qsend,QHostAddress(ip2),port2);
-            //            writeLog("els_dmi2 send data is "+QString::number(i)+"bytes",qsend);
-            //        qDebug()<<"1";
 
         }
         else
