@@ -494,7 +494,7 @@
          </rect>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="tab">
          <attribute name="title">
@@ -5014,6 +5014,443 @@
              </rect>
             </property>
            </widget>
+          </widget>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="tab_3">
+         <attribute name="title">
+          <string>Bits</string>
+         </attribute>
+         <widget class="QFrame" name="frame">
+          <property name="geometry">
+           <rect>
+            <x>76</x>
+            <y>48</y>
+            <width>897</width>
+            <height>453</height>
+           </rect>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QCheckBox" name="chb13">
+           <property name="geometry">
+            <rect>
+             <x>590</x>
+             <y>58</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>13</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chbolc10">
+           <property name="geometry">
+            <rect>
+             <x>462</x>
+             <y>200</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>10</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chbolc3">
+           <property name="geometry">
+            <rect>
+             <x>160</x>
+             <y>200</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>3</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chb2">
+           <property name="geometry">
+            <rect>
+             <x>114</x>
+             <y>58</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>2</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chb14">
+           <property name="geometry">
+            <rect>
+             <x>634</x>
+             <y>58</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>14</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chb10">
+           <property name="geometry">
+            <rect>
+             <x>460</x>
+             <y>58</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>10</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chb11">
+           <property name="geometry">
+            <rect>
+             <x>504</x>
+             <y>58</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>11</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chb6">
+           <property name="geometry">
+            <rect>
+             <x>288</x>
+             <y>58</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>6</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chb7">
+           <property name="geometry">
+            <rect>
+             <x>332</x>
+             <y>58</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>7</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chbolc5">
+           <property name="geometry">
+            <rect>
+             <x>246</x>
+             <y>200</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>5</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chb15">
+           <property name="geometry">
+            <rect>
+             <x>678</x>
+             <y>58</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>15</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chbolc8">
+           <property name="geometry">
+            <rect>
+             <x>376</x>
+             <y>200</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>8</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chbolc13">
+           <property name="geometry">
+            <rect>
+             <x>592</x>
+             <y>200</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>13</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chbolc11">
+           <property name="geometry">
+            <rect>
+             <x>506</x>
+             <y>200</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>11</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chbolc6">
+           <property name="geometry">
+            <rect>
+             <x>290</x>
+             <y>200</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>6</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chbolc7">
+           <property name="geometry">
+            <rect>
+             <x>334</x>
+             <y>200</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>7</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chbolc9">
+           <property name="geometry">
+            <rect>
+             <x>418</x>
+             <y>200</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>9</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chb8">
+           <property name="geometry">
+            <rect>
+             <x>374</x>
+             <y>58</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>8</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chbolc14">
+           <property name="geometry">
+            <rect>
+             <x>636</x>
+             <y>200</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>14</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chb16">
+           <property name="geometry">
+            <rect>
+             <x>720</x>
+             <y>58</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>16</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chbolc12">
+           <property name="geometry">
+            <rect>
+             <x>548</x>
+             <y>200</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>12</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chb1">
+           <property name="geometry">
+            <rect>
+             <x>70</x>
+             <y>58</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>1</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chb9">
+           <property name="geometry">
+            <rect>
+             <x>416</x>
+             <y>58</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>9</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chbolc16">
+           <property name="geometry">
+            <rect>
+             <x>722</x>
+             <y>200</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>16</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chb4">
+           <property name="geometry">
+            <rect>
+             <x>200</x>
+             <y>58</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>4</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chb3">
+           <property name="geometry">
+            <rect>
+             <x>158</x>
+             <y>58</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>3</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chb5">
+           <property name="geometry">
+            <rect>
+             <x>244</x>
+             <y>58</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>5</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chb12">
+           <property name="geometry">
+            <rect>
+             <x>546</x>
+             <y>58</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>12</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chbolc15">
+           <property name="geometry">
+            <rect>
+             <x>680</x>
+             <y>200</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>15</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chbolc4">
+           <property name="geometry">
+            <rect>
+             <x>202</x>
+             <y>200</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>4</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chbolc2">
+           <property name="geometry">
+            <rect>
+             <x>116</x>
+             <y>200</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>2</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="chbolc1">
+           <property name="geometry">
+            <rect>
+             <x>72</x>
+             <y>200</y>
+             <width>43</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>1</string>
+           </property>
           </widget>
          </widget>
         </widget>
