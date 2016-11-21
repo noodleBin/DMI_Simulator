@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
     israndom=false;
     isautoinc=false;
     issmsconfirm=true;
-    issendtracklayout=false;
+    issendtracklayout=true;
     is_auto_dmi_control=false;
 
     openFile();
@@ -759,30 +759,47 @@ void MainWindow::getDatafromUi(ELS_DMI_Protocol &d)
 #ifdef Baseline_2_0
     if(issendtracklayout)
     {
-          dms_dmi_data.Bitmap_Length=3;
-       d.DMS_DMI_Data_Size=sizeof(dms_dmi_data)-sizeof(dms_dmi_data.Bitmap)
+        dms_dmi_data.Bitmap_Length=64;
+        d.DMS_DMI_Data_Size=sizeof(dms_dmi_data)-sizeof(dms_dmi_data.Bitmap)
                 +sizeof(quint8)*dms_dmi_data.Bitmap_Length;
         QByteArray bytes;
         bytes.resize(d.DMS_DMI_Data_Size);
 
-              dms_dmi_data.Signal_ID=ui->le_back->text().toInt();
-               dms_dmi_data.RTU_Type=ui->le_type->text().toInt();
-             dms_dmi_data.RTU_ID=ui->le_position->text().toInt();
-             dms_dmi_data.Signal_Status=ui->le_value->text().toInt();
-                       dms_dmi_data.Bitmap=new quint8[dms_dmi_data.Bitmap_Length];
-             dms_dmi_data.Bitmap[0]=ui->le_value->text().toInt();
-             dms_dmi_data.Bitmap[1]=ui->le_resvalue->text().toInt();
-             dms_dmi_data.Bitmap[2]=ui->le_resvalue_2->text().toInt();
+        dms_dmi_data.Signal_ID=ui->le_back->text().toInt();
+        dms_dmi_data.RTU_Type=ui->le_type->text().toInt();
+        dms_dmi_data.RTU_ID=ui->le_position->text().toInt();
+        dms_dmi_data.Signal_Status=ui->le_value->text().toInt();
+        dms_dmi_data.Bitmap=new quint8[dms_dmi_data.Bitmap_Length];
 
-             dms_dmi_data.setBytesFromData(bytes);
-                      dms_dmi_data.freePointer();
+        for(int i=0;i<dms_dmi_data.Bitmap_Length;i++)
+        {
+            dms_dmi_data.Bitmap[i]=0;
+        }
+//        dms_dmi_data.Bitmap[0]=ui->le_value->text().toInt();
+//        dms_dmi_data.Bitmap[1]=ui->le_resvalue->text().toInt();
+//        dms_dmi_data.Bitmap[2]=ui->le_resvalue_2->text().toInt();
+
+        quint8 bit=ui->le_sigbit->text().toUInt();
+        if(ui->chksig->isChecked())
+            (dms_dmi_data.Bitmap[bit/8])|=(1<<bit%8);
+        else
+            (dms_dmi_data.Bitmap[bit/8])&=(~(1<<bit%8));
+        qint8 result=(dms_dmi_data.Bitmap[bit/8]&=(1<<bit%8))>>bit%8;
+//        qDebug()<<"in getdata bit="<<bit<<result;
 
 
-              d.DMS_DMI_Data = new quint8[d.DMS_DMI_Data_Size];
-              for(int i=0;i<d.DMS_DMI_Data_Size;i++)
-              {
-                  d.DMS_DMI_Data[i]=bytes[i];
-              }
+
+
+
+        dms_dmi_data.setBytesFromData(bytes);
+        dms_dmi_data.freePointer();
+
+
+        d.DMS_DMI_Data = new quint8[d.DMS_DMI_Data_Size];
+        for(int i=0;i<d.DMS_DMI_Data_Size;i++)
+        {
+            d.DMS_DMI_Data[i]=bytes[i];
+        }
     }
     else
     {
@@ -1102,7 +1119,7 @@ void MainWindow::sendMsg(bool isdmi)
                 +(sizeof(quint8)+sizeof(quint16))*2*els_dmi_data.Number_of_Active_Events;
 #ifdef Baseline_2_0
         sendlength +=els_dmi_data.DMS_DMI_Data_Size;
-//        qDebug()<<sendlength<<"dmsdmidatasize"<<(els_dmi_data.DMS_DMI_Data_Size);
+        //        qDebug()<<sendlength<<"dmsdmidatasize"<<(els_dmi_data.DMS_DMI_Data_Size);
 
 #endif
 
@@ -1205,6 +1222,10 @@ void MainWindow::timerEvent(QTimerEvent *e)
 {
     QByteArray temp;
     timer_1s++;
+    if(issendtracklayout&&isperiodly)
+        ui->frame->setEnabled(true);
+    else
+        ui->frame->setEnabled(false);
     if(timer_1s>=10)
     {
         ui->wdg_intialtime->setDateTime(QDateTime::currentDateTime());
@@ -1610,4 +1631,26 @@ void MainWindow::on_btn_addradar_clicked()
 void MainWindow::on_btn_subradar_clicked()
 {
     ui->tblwdg_radar->removeRow(ui->tblwdg_radar->currentRow());
+}
+
+void MainWindow::on_btn_sigok_clicked()
+{
+
+}
+
+void MainWindow::on_btn_lcsok_clicked()
+{
+
+}
+
+
+
+void MainWindow::on_chksig_clicked()
+{
+
+}
+
+void MainWindow::on_chklcs_clicked()
+{
+
 }

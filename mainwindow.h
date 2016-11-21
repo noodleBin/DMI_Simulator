@@ -89,6 +89,16 @@ private slots:
 
     void on_btn_subradar_clicked();
 
+    void on_btn_sigok_clicked();
+
+    void on_btn_lcsok_clicked();
+
+
+
+    void on_chksig_clicked();
+
+    void on_chklcs_clicked();
+
 private:
     Ui::MainWindow *ui;
 
