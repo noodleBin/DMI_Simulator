@@ -5039,44 +5039,21 @@
           <widget class="QCheckBox" name="chksig">
            <property name="geometry">
             <rect>
-             <x>106</x>
-             <y>154</y>
+             <x>495</x>
+             <y>185</y>
              <width>97</width>
              <height>22</height>
             </rect>
            </property>
            <property name="text">
-            <string>sigset</string>
-           </property>
-          </widget>
-          <widget class="QCheckBox" name="chklcs">
-           <property name="geometry">
-            <rect>
-             <x>100</x>
-             <y>342</y>
-             <width>97</width>
-             <height>22</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>lcsset</string>
+            <string>set</string>
            </property>
           </widget>
           <widget class="QLineEdit" name="le_sigbit">
            <property name="geometry">
             <rect>
-             <x>108</x>
-             <y>88</y>
-             <width>91</width>
-             <height>27</height>
-            </rect>
-           </property>
-          </widget>
-          <widget class="QLineEdit" name="le_lcsbit">
-           <property name="geometry">
-            <rect>
-             <x>104</x>
-             <y>264</y>
+             <x>360</x>
+             <y>180</y>
              <width>91</width>
              <height>27</height>
             </rect>
