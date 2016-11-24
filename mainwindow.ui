@@ -3406,6 +3406,9 @@
               <height>22</height>
              </rect>
             </property>
+            <property name="text">
+             <string>4</string>
+            </property>
             <property name="readOnly">
              <bool>true</bool>
             </property>
@@ -3418,6 +3421,9 @@
               <width>65</width>
               <height>22</height>
              </rect>
+            </property>
+            <property name="text">
+             <string>2</string>
             </property>
            </widget>
            <widget class="QLabel" name="label_156">

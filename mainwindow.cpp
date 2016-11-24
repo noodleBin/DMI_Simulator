@@ -807,6 +807,7 @@ void MainWindow::getDatafromUi(ELS_DMI_Protocol &d)
     }
 #endif
 
+//    qDebug()<<issmsconfirm;
     if(issmsconfirm)
     {
         issmsconfirm=false;
@@ -815,6 +816,7 @@ void MainWindow::getDatafromUi(ELS_DMI_Protocol &d)
         d.Driver_Message_Number=ui->le_DriNum->text().toInt();
 
         QString dritxt=ui->le_drimsgtxt->text();
+//        qDebug()<<"Dd"<<dritxt;
         if(dritxt!="")
         {
             QByteArray tmpdritxt= dritxt.toUtf8();
